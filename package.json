@@ -1,0 +1,28 @@
+{
+  "name": "Nodemailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "engines": {
+    "node": "16.14.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "latest-version": "^7.0.0",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.4.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

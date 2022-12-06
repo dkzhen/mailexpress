@@ -10,10 +10,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
 app.use("/images", express.static(__dirname + "images"));
-app.use(express.static(__dirname + "/public"));
 
 var email;
 var title;
@@ -34,7 +32,7 @@ var upload = multer({
 }).single("image"); //Field name and max count
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.send("Page Express");
 });
 
 app.post("/api/sendemail", (req, res) => {

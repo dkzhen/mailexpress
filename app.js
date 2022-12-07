@@ -45,6 +45,7 @@ app.post("/api/sendemail", (req, res) => {
       title = req.body.title;
       area = req.body.area;
       path = req.file.path;
+
       console.log(email);
       console.log(title);
       console.log(area);
@@ -501,13 +502,13 @@ app.post("/api/sendemail", (req, res) => {
       
       </html>`;
       var transporter = nodemailer.createTransport({
-        host: "smtp.zoho.com",
+        host: process.env.EMAIL_HOST,
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
           type: "login",
-          user: "support@zhen.biz.id", // generated ethereal user
-          pass: "Bandulan113@", // generated ethereal password
+          user: process.env.EMAIL, // generated ethereal user
+          pass: process.env.PASS, // generated ethereal password
         },
         tls: {
           // do not fail on invalid certs
@@ -530,6 +531,7 @@ app.post("/api/sendemail", (req, res) => {
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
           console.log(error);
+          console.log("haloo eror");
         } else {
           res.json({ status: "success" });
           console.log("Email sent: " + info.response);
